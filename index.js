@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import connectDB from './config/dbConfig.js';
-
+import authRoutes from './routes/auth/auth.js';
 const app = express();
 dotenv.config();
 
@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
+app.use('/api/v1', authRoutes);
 
 // connect to db
 connectDB();

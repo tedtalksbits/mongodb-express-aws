@@ -1,19 +1,17 @@
 import mongoose from 'mongoose';
-
-const userSchema = new mongoose.Schema({
+const { Schema } = mongoose;
+const userSchema = new Schema({
     username: {
         type: String,
-        trim: true,
-        required: [true, 'Username is required'],
+        required: true,
     },
     email: {
         type: String,
-        trim: true,
-        required: [true, 'Email is required'],
+        required: true,
     },
     password: {
         type: Object,
-        required: [true, 'Password is required'],
+        required: true,
         default: {
             value: '',
             createdAt: Date.now(),
@@ -36,26 +34,25 @@ const userSchema = new mongoose.Schema({
             Math.random() +
             '.png?size=200x200&set=set1',
     },
-    identificationType: {
-        type:
-            'passport' | 'driver license' | 'state id' | 'student id' | 'other',
-        required: [true, 'Identification type is required'],
-    },
-    identificationNumber: {
+    idType: {
         type: String,
-        required: [true, 'Identification number is required'],
+        required: true,
     },
-    identificationExpirationDate: {
+    idNumber: {
+        type: String,
+        required: true,
+    },
+    idExpirationDate: {
         type: Date,
-        required: [true, 'Identification expiration date is required'],
+        required: true,
     },
-    identificationImage: {
+    idImage: {
         type: String,
-        required: [true, 'Identification image is required'],
+        required: true,
     },
     address: {
         type: Object,
-        required: [true, 'Address is required'],
+        required: true,
         default: {
             street: '',
             city: '',
@@ -65,19 +62,32 @@ const userSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        required: [true, 'Phone number is required'],
+        required: true,
     },
     dob: {
         type: Date,
-        required: [true, 'Date of birth is required'],
+        required: true,
     },
     ssn: {
         type: String,
-        required: [true, 'Social security number is required'],
+        required: true,
     },
     ssnImage: {
         type: String,
-        trim: true,
+    },
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
+        type: String,
+        required: true,
+    },
+    middleName: {
+        type: String,
+    },
+    suffix: {
+        type: String,
     },
 });
 

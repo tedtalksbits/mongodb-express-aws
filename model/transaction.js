@@ -16,37 +16,23 @@ const transactionSchema = new mongoose.Schema({
     },
     amount: {
         type: Number,
-        required: [true, 'Please add a positive or negative number'],
+        required: true,
     },
     category: {
         type: String,
-        required: [true, 'Please add a category'],
+        required: true,
     },
     posted_date: {
         type: Date,
         default: Date.now,
     },
-    // type of transaction: 'purchase',
-
     type: {
-        type:
-            'direct deposit' |
-            'transfer' |
-            'interest' |
-            'fee' |
-            'other' |
-            'zelle payment' |
-            'zelle request' |
-            'cash back' |
-            'refund' |
-            'reversal' |
-            'adjustment' |
-            'withdrawal',
+        type: String,
         default: 'purchase',
     },
     createdAt: {
         type: Date,
-        default: Date.now,
+        default: Date.now(),
     },
     description: {
         type: String,
