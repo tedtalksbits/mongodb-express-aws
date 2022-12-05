@@ -1,0 +1,22 @@
+Sun Dec 04 2022 02:05:11 GMT-0500 (Eastern Standard Time) 2:05:11 AM PostmanRuntime/7.29.2 ::1 50475 localhost:3000 POST /auth/register 400 - Email already exists
+Sun Dec 04 2022 11:45:09 GMT-0500 (Eastern Standard Time) 11:45:09 AM PostmanRuntime/7.29.2 ::1 64642 localhost:3000 POST /auth/register 400 - Email already exists
+Sun Dec 04 2022 11:46:14 GMT-0500 (Eastern Standard Time) 11:46:14 AM PostmanRuntime/7.29.2 ::1 63449 localhost:3000 POST /auth/register 500 - MongoServerError: E11000 duplicate key error collection: bankify.users index: idNumber_1 dup key: { idNumber: "123456789" }
+Sun Dec 04 2022 11:49:35 GMT-0500 (Eastern Standard Time) 11:49:35 AM PostmanRuntime/7.29.2 ::1 63474 localhost:3000 POST /auth/register 201 - User registered successfully
+Sun Dec 04 2022 12:03:01 GMT-0500 (Eastern Standard Time) 12:03:01 PM PostmanRuntime/7.29.2 ::1 55038 localhost:3000 POST /auth/register 201 - User registered successfully
+Sun Dec 04 2022 12:22:51 GMT-0500 (Eastern Standard Time) 12:22:51 PM PostmanRuntime/7.29.2 ::1 61309 localhost:3000 POST /auth/register 201 - User registered successfully
+Sun Dec 04 2022 18:20:47 GMT-0500 (Eastern Standard Time) 6:20:47 PM PostmanRuntime/7.29.2 ::1 62949 localhost:3000 POST /auth/register 400 - Email already exists
+Sun Dec 04 2022 18:21:09 GMT-0500 (Eastern Standard Time) 6:21:09 PM PostmanRuntime/7.29.2 ::1 62958 localhost:3000 POST /auth/register 500 - MongoServerError: E11000 duplicate key error collection: bankify.users index: idNumber_1 dup key: { idNumber: "99999999" }
+Sun Dec 04 2022 18:21:46 GMT-0500 (Eastern Standard Time) 6:21:46 PM PostmanRuntime/7.29.2 ::1 52555 localhost:3000 POST /auth/register 500 - MongoServerError: E11000 duplicate key error collection: bankify.users index: idNumber_1 dup key: { idNumber: "99999999" }
+Sun Dec 04 2022 18:22:17 GMT-0500 (Eastern Standard Time) 6:22:17 PM PostmanRuntime/7.29.2 ::1 52577 localhost:3000 POST /auth/register 201 - User registered successfully
+Sun Dec 04 2022 18:48:56 GMT-0500 (Eastern Standard Time) 6:48:56 PM PostmanRuntime/7.29.2 ::1 63585 localhost:3000 POST /auth/login 401 - Wrong password
+Sun Dec 04 2022 18:49:18 GMT-0500 (Eastern Standard Time) 6:49:18 PM PostmanRuntime/7.29.2 ::1 65328 localhost:3000 POST /auth/login 400 - User not found
+Sun Dec 04 2022 18:50:07 GMT-0500 (Eastern Standard Time) 6:50:07 PM PostmanRuntime/7.29.2 ::1 65362 localhost:3000 POST /auth/login 400 - User not found
+Sun Dec 04 2022 18:50:23 GMT-0500 (Eastern Standard Time) 6:50:23 PM PostmanRuntime/7.29.2 ::1 65368 localhost:3000 POST /auth/login 401 - Incorrect password
+Sun Dec 04 2022 18:50:48 GMT-0500 (Eastern Standard Time) 6:50:48 PM PostmanRuntime/7.29.2 ::1 65372 localhost:3000 POST /auth/login 401 - Incorrect password
+Sun Dec 04 2022 18:51:25 GMT-0500 (Eastern Standard Time) 6:51:25 PM PostmanRuntime/7.29.2 ::1 65378 localhost:3000 POST /auth/login 200 - User logged in successfully
+Sun Dec 04 2022 18:54:11 GMT-0500 (Eastern Standard Time) 6:54:11 PM PostmanRuntime/7.29.2 ::1 58761 localhost:3000 POST /auth/login 200 - User logged in successfully
+Sun Dec 04 2022 19:15:52 GMT-0500 (Eastern Standard Time) 7:15:52 PM PostmanRuntime/7.29.2 ::1 65505 localhost:3000 POST /auth/login 200 - User logged in successfully
+Sun Dec 04 2022 19:28:43 GMT-0500 (Eastern Standard Time) 7:28:43 PM PostmanRuntime/7.29.2 ::1 62962 localhost:3000 POST /auth/login 200 - User logged in successfully
+Sun Dec 04 2022 19:28:58 GMT-0500 (Eastern Standard Time) 7:28:58 PM PostmanRuntime/7.29.2 ::1 62979 localhost:3000 POST /auth/login 200 - User logged in successfully
+Mon Dec 05 2022 06:49:37 GMT-0500 (Eastern Standard Time) 6:49:37 AM Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 ::1 58192 localhost:3000 POST /auth/login 400 - User not found
+Mon Dec 05 2022 06:50:59 GMT-0500 (Eastern Standard Time) 6:50:59 AM Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 ::1 58252 localhost:3000 POST /auth/login 200 - User logged in successfully
