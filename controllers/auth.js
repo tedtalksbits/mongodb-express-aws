@@ -8,23 +8,11 @@ import { fsLogger } from '../logger/index.js';
 import jwt from 'jsonwebtoken';
 
 export const register = async (req, res) => {
-    //  get info about client
-    const deviceInfo = req.headers['user-agent'];
-    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    const port = req.connection.remotePort;
-    const host = req.headers.host;
-    const method = req.method;
-    const url = req.url;
-    const date = new Date();
-    const time = date.toLocaleTimeString();
-
-    const clientReqInfo = `${date} ${time} ${deviceInfo} ${ip} ${port} ${host} ${method} ${url}`;
-
     const { username, email, password } = req.body;
 
     const emailExist = await User.findOne({ email }).exec();
     if (emailExist) {
-        fsLogger(clientReqInfo + ' 400 - Email already exists');
+        fsLogger(req, res);
         return res.status(400).json({
             error: true,
             status: 400,
@@ -37,7 +25,7 @@ export const register = async (req, res) => {
     }).exec();
 
     if (usernameExist) {
-        fsLogger(clientReqInfo + ' 400 - Username already exists');
+        fsLogger(req, res);
         return res.status(400).json({
             error: true,
             status: 400,
@@ -48,7 +36,7 @@ export const register = async (req, res) => {
     const { error: usernameErr, message: usernameErrMsg } =
         usernameChecker(username);
     if (usernameErr) {
-        fsLogger(clientReqInfo + ' 400 - ' + usernameErrMsg);
+        fsLogger(req, res);
         return res.status(400).json({
             error: true,
             status: 400,
@@ -57,7 +45,7 @@ export const register = async (req, res) => {
     }
     const { error: pwErr, message: pwErrMsg } = pwCheck(password);
     if (pwErr) {
-        fsLogger(clientReqInfo + ' 400 - ' + pwErrMsg);
+        fsLogger(req, res);
         return res.status(400).json({
             error: true,
             status: 400,
@@ -84,14 +72,14 @@ export const register = async (req, res) => {
     try {
         await newUser.save();
     } catch (error) {
-        fsLogger(clientReqInfo + ' 500 - ' + error);
+        fsLogger(req, res);
         return res.status(500).json({
             error: true,
             status: 500,
             errorMsg: error.message,
         });
     }
-    fsLogger(clientReqInfo + ' 201 - User registered successfully');
+    fsLogger(req, res);
     // destructure password and ssn from newUser
     // eslint-disable-next-line no-unused-vars
     const { password: pw, ssn, ...user } = newUser._doc;
@@ -107,18 +95,6 @@ export const register = async (req, res) => {
 // login
 
 export const login = async (req, res) => {
-    //  get info about client
-    const deviceInfo = req.headers['user-agent'];
-    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    const port = req.connection.remotePort;
-    const host = req.headers.host;
-    const method = req.method;
-    const url = req.url;
-    const date = new Date();
-    const time = date.toLocaleTimeString();
-
-    const clientReqInfo = `${date} ${time} ${deviceInfo} ${ip} ${port} ${host} ${method} ${url}`;
-
     const { username, password } = req.body;
 
     const user = await User.findOne({
@@ -126,7 +102,7 @@ export const login = async (req, res) => {
     }).exec();
 
     if (!user) {
-        fsLogger(clientReqInfo + ' 400 - User not found');
+        fsLogger(req, res);
         return res.status(400).json({
             error: true,
             status: 400,
@@ -140,7 +116,7 @@ export const login = async (req, res) => {
     ).toString(CryptoJS.enc.Utf8);
 
     if (decryptedPw !== password) {
-        fsLogger(clientReqInfo + ' 401 - Incorrect password');
+        fsLogger(req, res);
         return res.status(401).json({
             error: true,
             status: 401,
@@ -158,7 +134,7 @@ export const login = async (req, res) => {
     );
 
     //const { password: pw, ssn, ...userWithoutPw } = user._doc;
-    fsLogger(clientReqInfo + ' 200 - User logged in successfully');
+    fsLogger(req, res);
     // return res.status(200).json({
     //     ok: true,
     //     status: 200,

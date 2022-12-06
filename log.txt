@@ -20,3 +20,6 @@ Sun Dec 04 2022 19:28:43 GMT-0500 (Eastern Standard Time) 7:28:43 PM PostmanRunt
 Sun Dec 04 2022 19:28:58 GMT-0500 (Eastern Standard Time) 7:28:58 PM PostmanRuntime/7.29.2 ::1 62979 localhost:3000 POST /auth/login 200 - User logged in successfully
 Mon Dec 05 2022 06:49:37 GMT-0500 (Eastern Standard Time) 6:49:37 AM Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 ::1 58192 localhost:3000 POST /auth/login 400 - User not found
 Mon Dec 05 2022 06:50:59 GMT-0500 (Eastern Standard Time) 6:50:59 AM Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 ::1 58252 localhost:3000 POST /auth/login 200 - User logged in successfully
+Mon Dec 05 2022 20:08:25 GMT-0500 (Eastern Standard Time) 8:08:25 PM PostmanRuntime/7.30.0 ::1 56493 localhost:3000 POST /auth/register 400 - Email already exists
+Mon Dec 05 2022 20:11:51 GMT-0500 (Eastern Standard Time) 8:11:51 PM PostmanRuntime/7.30.0 ::1 56649 localhost:3000 POST /auth/login 200 - User logged in successfully
+Mon Dec 05 2022 20:35:42 GMT-0500 (Eastern Standard Time) 8:35:42 PM PostmanRuntime/7.30.0 ::1 57465 localhost:3000 GET /account 200
